@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { ThemeToggler } from './theme-toggler'
 
 const Header = () => {
   return (
@@ -14,6 +15,10 @@ const Header = () => {
                 className='cursor-pointer invert-0 dark:invert'
             />
         </Link>
+
+        <div className="flex space-x-2">
+            <ThemeToggler />
+        </div>
     </header>
   )
 }
