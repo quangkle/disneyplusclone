@@ -32,21 +32,21 @@ export async function getUpcomingMovies() {
 }
 
 export async function getTopRatedMovies() {
-    const url = new URL("https://api.themoviesdb.org/3/movies/top_rated");
+    const url = new URL("https://api.themoviedb.org/3/movie/top_rated");
     const data = await fetchFromTmdb(url);
 
     return data.results;
 }
 
 export async function getPopularMovies() {
-    const url = new URL("https://api.themoviesdb.org/3/movies/popular");
+    const url = new URL("https://api.themoviedb.org/3/movie/popular");
     const data = await fetchFromTmdb(url);
 
     return data.results;
 }
 
 export async function getDiscoverMovies(genreId?: string, keywords?: string) {
-    const url = new URL("https://api.themoviesdb.org/3/discover/movie");
+    const url = new URL("https://api.themoviedb.org/3/discover/movie");
 
     keywords && url.searchParams.set("with_keywords", keywords);
     genreId && url.searchParams.set("with_genres", genreId);
@@ -57,7 +57,7 @@ export async function getDiscoverMovies(genreId?: string, keywords?: string) {
 }
 
 export async function getSearchedMovies(term: string) {
-    const url = new URL("https://api.themoviesdb.org/3/search/movie");
+    const url = new URL("https://api.themoviedb.org/3/search/movie");
     url.searchParams.set("query", term);
     
     const data = await fetchFromTmdb(url);
