@@ -1,4 +1,5 @@
 import { SearchResults } from "@/types";
+import axios from "axios";
 
 async function fetchFromTmdb(url: URL, cacheTime?: number) {
     url.searchParams.set("include_adult", "false");
@@ -7,8 +8,7 @@ async function fetchFromTmdb(url: URL, cacheTime?: number) {
     url.searchParams.set("language", "en-US");
     url.searchParams.set("page", "1");
 
-    const options: RequestInit = {
-        method: "GET",
+    const options = {
         headers: {
             accept: "application/json",
             Authorization: `Bearer ${process.env.TMDB_API_KEY}`
@@ -18,14 +18,14 @@ async function fetchFromTmdb(url: URL, cacheTime?: number) {
         }
     };
 
-    const response = await fetch(url, options);
-    const data = (await response.json()) as SearchResults
+    const response = await axios.get(url.toString(), options);
+    const data = response.data as SearchResults
 
     return data;
 }
 
 export async function getUpcomingMovies() {
-    const url = new URL("https://api.themoviesdb.org/3/movies/upcoming");
+    const url = new URL("https://api.themoviedb.org/3/movie/upcoming");
     const data = await fetchFromTmdb(url);
 
     return data.results;
