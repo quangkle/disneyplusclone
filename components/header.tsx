@@ -10,7 +10,7 @@ const Header = () => {
     <header className='fixed w-full z-20 top-0 flex items-center justify-between p-5 bg-gradient-to-t from-gray-200/0 via-gray-900/25 to-gray-900'>
         <Link href="/" className='mr-10'>
             <Image 
-                src="https://links.papareact.com/a943ae"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Disney_wordmark.svg/1280px-Disney_wordmark.svg.png"
                 alt="Disney logo"
                 width={120}
                 height={100}
