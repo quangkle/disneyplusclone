@@ -1,3 +1,4 @@
+import CarouselBannerWrapper from '@/components/carousel-banner-wrapper';
 import MoviesCarousel from '@/components/movies-carousel'
 import { getPopularMovies, getTopRatedMovies, getUpcomingMovies } from '@/lib/getMovies';
 
@@ -8,11 +9,9 @@ export default async function Home() {
 
   return (
     <main className=''>
-      <h1 className=''>
-        Disney home
-      </h1>
+      <CarouselBannerWrapper />
 
-      <div className='flex flex-col space-y-2 xl:mt-48'>
+      <div className='flex flex-col space-y-2'>
         <MoviesCarousel movies={upcomingMovies} title="Upcoming"/>
         <MoviesCarousel movies={topRatedMovies} title="Top Rated" />
         <MoviesCarousel movies={popularMovies} title="Popular" />
