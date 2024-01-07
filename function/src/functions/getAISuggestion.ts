@@ -1,3 +1,5 @@
+//https://disney-clone-demo.azurewebsites.net/api/getAISuggestion
+
 import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
 import OpenAI from "openai";
 
